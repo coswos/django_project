@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from src.config.exchange import main_exchange
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("exchange/", main_exchange),
 ]

@@ -6,8 +6,13 @@ name = "pypi"
 [packages]
 requests = "~=2.31"
 django = "~=4.2"
+pydantic = "~=2.4"
 
 [dev-packages]
+ruff = "~=0.0.292"
+black = "~=23.9"
+isort = "~=5.12"
+mypy = "~=1.6"
 
 [requires]
 python_version = "3.10"
