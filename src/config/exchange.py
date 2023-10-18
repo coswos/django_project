@@ -1,4 +1,5 @@
-from django.http import HttpResponse
+import json
+
 import requests
 from pydantic import BaseModel, Field
 
@@ -30,12 +31,17 @@ class ValueData(BaseModel):
     rate: float = Field(alias="5. Exchange Rate")
 
 
-def main_exchange(_):
-    cur_from = 'usd'
-    cur_to = 'uah'
+def main_exchange(_, currency_from, currency_to):
+    cur_from = currency_from  # 'usd'
+    cur_to = currency_to  # 'uah'
     req = request(cur_from=cur_from, target=cur_to)
     values = ValueData(**req.all_dt)
-    return HttpResponse(f"Rate {cur_from.upper()} to {cur_to.upper()} is {values.rate}")
+
+    with open("history.json", "a") as json_file:
+        exchange_data = {"currency_pair": f"{cur_from}/{cur_to}", "exchange_rate": values.rate}
+        json_file.write(json.dumps(exchange_data) + "\n")
+
+    return f"Rate {cur_from.upper()} to {cur_to.upper()} is {round(values.rate, 2)}"
 
 
 if __name__ == "__main__":
