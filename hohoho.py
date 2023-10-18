@@ -1,0 +1,3 @@
+import mypy
+
+print('hello')
