@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency exchange</title>
+</head>
+<body>
+    <form method="post" action="{% url 'submit_form' %}">
+        {% csrf_token %}
+        <label for="from_cur">From currency</label>
+        <input type="text" id="from_cur" name="from_ex" required>
+        <br>
+        <label for="to_cur">To currency:</label>
+        <input type="text" id="to_cur" name="to_ex" required>
+        <br>
+        <input type="submit" value="Get exchange rate">
+    </form>
+</body>
+</html>

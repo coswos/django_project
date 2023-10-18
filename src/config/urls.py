@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from src.config.exchange import main_exchange
+
+from src.config.history_that import show_history
+
+# import html template
+from src.config.views import submit_form
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("exchange/", main_exchange),
+    path("exchange-rates/historythat/", show_history, name="all_history_exchanges"),
+    path("exchange/", submit_form, name="submit_form"),
 ]

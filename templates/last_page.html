@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <p>{{ result_data }}</p>
+    <div>
+        <a href="{% url 'submit_form' %}">Get a new exchange rate</a>
+    </div>
+    <div>
+        <a href="{% url 'all_history_exchanges' %}">Watch the entire history of exchanges</a>
+    </div>
+</body>
+</html>
