@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from src.config.exchange import main_exchange
+from .exchange import main_exchange
 
 
 def new_page(request):
