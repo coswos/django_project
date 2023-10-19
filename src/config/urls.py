@@ -17,10 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from src.config.history_that import show_history
+from .history_that import show_history
 
 # import html template
-from src.config.views import submit_form
+from .views import submit_form
 
 urlpatterns = [
     path("admin/", admin.site.urls),
