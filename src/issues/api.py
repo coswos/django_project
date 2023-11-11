@@ -9,9 +9,8 @@ def create_issue(request):
     if request.method != "POST":
         raise NotImplementedError("Only POST method!")
     data = json.loads(request.body)
-    # issue = Issue.objects.create(**data)
-    Issue.objects.create(**data)
-    return HttpResponse(f"Your {data['title']} was successful create!")
+    issue = Issue.objects.create(**data)
+    return HttpResponse(f"Your {issue['title']} was successful create!")
 
 
 def all_issues(request):
