@@ -6,3 +6,8 @@ python src/manage.py runserver
 ```
 django-admin startproject <name_folder>
 ```
+
+### Code for create new module
+```
+python src/manage.py startapp <name_module>
+```
