@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 
 # Устанавливаем DJANGO_SETTINGS_MODULE в коде
 # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "src/config/settings.py")
