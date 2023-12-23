@@ -26,11 +26,14 @@ def create_user(request):
     data: dict = json.loads(request.body)
     try:
         user: User = User.objects.create(**data)
-    except IntegrityError:
-        return HttpResponse("Try another email." f"\nUser with {data['email']} already exist!")
+    # TODO may be replace data['email] -> user.email later
+    except IntegrityError as error:
+        # return HttpResponse("Try another email." f"\nUser with {data['email']} already exist!")
+        return HttpResponse(error)
 
     fields = ["email", "first_name", "last_name", "id"]
     data_presentation = {attr: getattr(user, attr) for attr in fields}
+
     if not user:
         raise NotImplementedError("Can not create user!")
 
