@@ -1,5 +1,8 @@
 from pathlib import Path
+import os
 
+# Устанавливаем DJANGO_SETTINGS_MODULE в коде
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "src/config/settings.py")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # I deleted one .parent
 PROJECT_DIR = Path(__file__).resolve().parent.parent.parent
