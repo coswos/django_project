@@ -1,3 +1,7 @@
+### Launch with docker compose
+```
+docker compose up
+```
 ### Code for launch local server
 ```
 python src/manage.py runserver
