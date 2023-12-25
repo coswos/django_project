@@ -7,6 +7,7 @@ name = "pypi"
 requests = "~=2.31"
 django = "~=4.2"
 pydantic = "~=2.4"
+gunicorn = "==21.2.0"
 
 [dev-packages]
 ruff = "~=0.0.292"
