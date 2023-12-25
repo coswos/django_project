@@ -1,6 +1,8 @@
 # image from docker hub
 FROM python:3.11-slim
 
+# environment for run with gunicorn
+ENV PYTHONPATH=src/
 
 # commands will be run during the image build process
 RUN apt-get update -y \
@@ -19,4 +21,9 @@ RUN pipenv sync --dev --system
 # the container will be launched in this directory every time
 WORKDIR /app
 
-CMD [ "make", "run" ]
+# run with gunicorn
+ENTRYPOINT [ "gunicorn" ]
+CMD [ "--workers=2", "config.wsgi:application", "--bind=0.0.0.0:8000" ]
+
+# run with django server
+# CMD [ "make", "run" ]
