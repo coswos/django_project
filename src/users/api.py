@@ -1,3 +1,4 @@
+from curses.ascii import HT
 import json
 
 from django.db import IntegrityError
@@ -26,10 +27,8 @@ def create_user(request):
     data: dict = json.loads(request.body)
     try:
         user: User = User.objects.create(**data)
-    # TODO may be replace data['email] -> user.email later
-    except IntegrityError as error:
-        # return HttpResponse("Try another email." f"\nUser with {data['email']} already exist!")
-        return HttpResponse(error)
+    except IntegrityError:
+        return HttpResponse("Try another email." f"\nUser with {data['email']} already exist!")
 
     fields = ["email", "first_name", "last_name", "id"]
     data_presentation = {attr: getattr(user, attr) for attr in fields}
