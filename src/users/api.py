@@ -1,4 +1,3 @@
-from curses.ascii import HT
 import json
 
 from django.db import IntegrityError
