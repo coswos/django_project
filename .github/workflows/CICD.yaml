@@ -16,4 +16,4 @@ jobs:
     - name: run linter
       run: ruff check .
     - name: run formatters
-      run: black -t py310 --check . && isort .
+      run: black -t py310 --check . && isort --check .
