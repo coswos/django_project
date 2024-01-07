@@ -1,5 +1,6 @@
 check:
 	ruff check .
+	isort --check .
 	black --check .
 
 fix:
