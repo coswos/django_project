@@ -23,7 +23,7 @@ WORKDIR /app
 
 # run with gunicorn
 ENTRYPOINT [ "gunicorn" ]
-CMD [ "--workers=2", "config.wsgi:application", "--bind=0.0.0.0:8000" ]
+CMD [ "--workers=1", "config.wsgi:application", "--bind=0.0.0.0:8000", "--reload" ]
 
 # run with django server
-# CMD [ "make", "run" ]
+# CMD [ "make", "run" ]   

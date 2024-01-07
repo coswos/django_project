@@ -1,23 +1,27 @@
 from django.db import models
 
+from shared.django import TimestampMixin
+
 
 # Create your models here.
-class Issue(models.Model):
+class Issue(TimestampMixin):
     title = models.CharField(max_length=50)
     body = models.CharField(max_length=255)
-    timestamp = models.DateTimeField(auto_now_add=True)
-    junior_id = models.IntegerField()
-    senior_id = models.IntegerField(null=True)
     status = models.CharField(max_length=10)
 
+    junior_id = models.IntegerField()
+    senior_id = models.IntegerField(null=True)
 
-# Role(value)
-class Role(models.Model):
-    value = models.CharField(max_length=15)
+    class Meta:
+        db_table = "issues"
 
 
 # Message(body, issue_id, user_id)
-class Message(models.Model):
-    body = models.CharField(max_length=255)
+class Message(TimestampMixin):
+    content = models.CharField(max_length=255)
+
+    author_id = models.IntegerField()
     issue_id = models.IntegerField()
-    user_id = models.IntegerField()
+
+    class Meta:
+        db_table = "issues/messages"

@@ -12,7 +12,7 @@ services:
     container_name: hillel
     # mount files from:to 
     volumes:
-      - ".:/app"
+      - .:/app
     # from:to
     ports:
-      - "8000:8000"
+      - 8000:8000
